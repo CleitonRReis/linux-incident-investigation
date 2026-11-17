@@ -33,7 +33,7 @@ The terminal confirmed:
 
 ### Evidence
 
-<img width="1415" height="933" alt="image" src="https://github.com/user-attachments/assets/eaa771dd-788a-4122-86c8-000b92158f75" />
+![Docker image downloaded](../screenshots/01-docker-image-pull.png)
 
 
 ### Key Learning
@@ -90,4 +90,4 @@ The `docker run` command creates and starts a container from an image, while the
 
 ### Evidence
 
-<img width="1415" height="933" alt="image" src="https://github.com/user-attachments/assets/dc5ba3b5-bed9-40c0-ab70-ab36e9a33b78" />
+![Docker container started](../screenshots/02-container-started.png)
