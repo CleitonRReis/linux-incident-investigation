@@ -167,3 +167,50 @@ Results:
 - No swap memory was being used at the time of inspection.
 
 **Status:** Completed.
+
+## 4. Process Verification
+
+This step focused on identifying running processes inside the Linux container.
+
+### Commands executed
+
+**1. List running processes**
+
+```bash
+ps aux
+```
+
+Lists running processes and displays information such as process owner, PID, CPU and memory usage, process status, and command.
+
+Relevant results:
+
+| PID | Process | STAT |
+|---:|---|---|
+| 1 | `/bin/bash` | Ss |
+| 8 | `python3 /usr/local/bin/billing-api-simulator.py` | S |
+| 72 | `ps aux` | R+ |
+
+**2. Filter processes related to billing**
+
+```bash
+ps aux | grep billing
+```
+
+Uses a pipe (`|`) to send the process list to `grep`, filtering entries containing the word `billing`.
+
+Result:
+
+```text
+devops  8  0.0  0.1  14172  10052 pts/0  S   10:25  0:04 python3 /usr/local/bin/billing-api-simulator.py
+devops 74  0.0  0.0   3332   1504 pts/0  S+  18:48  0:00 grep billing
+```
+
+The PID 74 entry represents the `grep billing` command itself, which appears in the results because its command line contains the searched term.
+
+### Key observations
+
+- The process `billing-api-simulator.py` was identified with PID 8.
+- The process was listed with status `S`.
+- The filtered search successfully returned the billing simulator process.
+
+**Status:** Completed.
