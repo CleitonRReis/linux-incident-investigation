@@ -49,7 +49,7 @@ Documentation and evidence will be added progressively as the lab is completed.
 
 | Stage | Status |
 |---|---|
-| Environment setup | Pending |
+| Environment setup | Done |
 | System investigation | Pending |
 | Log analysis | Pending |
 | Root cause analysis | Pending |
