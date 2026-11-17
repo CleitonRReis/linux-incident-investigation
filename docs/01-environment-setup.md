@@ -91,3 +91,79 @@ The `docker run` command creates and starts a container from an image, while the
 ### Evidence
 
 ![Docker container started](../screenshots/02-container-started.png)
+
+## 3. General System Analysis
+
+This step was performed inside the `devops-investigation` Docker container to collect basic information about the Linux environment.
+
+### Commands executed
+
+**1. Current working directory**
+
+```bash
+pwd
+```
+
+Output:
+```text
+/srv/app
+```
+
+**2. Current user**
+
+```bash
+whoami
+```
+
+Output:
+```text
+devops
+```
+
+**3. Kernel and system information**
+
+```bash
+uname -a
+```
+
+Output:
+```text
+Linux 65c9803755d1 6.10.14-linuxkit #1 SMP PREEMPT_DYNAMIC Tue Apr 15 16:05:22 UTC 2025 x86_64 GNU/Linux
+```
+
+**4. Disk space usage**
+
+```bash
+df -h
+```
+
+Key results:
+
+| Filesystem | Size | Used | Available | Use |
+|---|---:|---:|---:|---:|
+| overlay | 59G | 8.2G | 48G | 15% |
+| /dev/vda1 | 59G | 8.2G | 48G | 15% |
+
+**5. Memory usage**
+
+```bash
+free -h
+```
+
+Results:
+
+| Memory | Total | Used | Free | Available |
+|---|---:|---:|---:|---:|
+| RAM | 7.7Gi | 589Mi | 6.7Gi | 7.1Gi |
+| Swap | 1.0Gi | 0B | 1.0Gi | — |
+
+### Key observations
+
+- The current working directory is `/srv/app`.
+- Commands are being executed by the `devops` user.
+- The environment runs Linux kernel `6.10.14-linuxkit` on `x86_64` architecture.
+- The reported root filesystem has 15% disk usage.
+- The system reports 7.1 GiB of available memory.
+- No swap memory was being used at the time of inspection.
+
+**Status:** Completed.
